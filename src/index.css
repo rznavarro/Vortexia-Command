@@ -1,0 +1,151 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Cormorant Garamond", serif;
+  --font-mono: "JetBrains Mono", monospace;
+}
+
+:root {
+  --bg-primary: #050507;
+  --bg-secondary: #09090D;
+  --bg-tertiary: #0E0E14;
+  --accent: #C5A059;
+  --accent-dim: rgba(197, 160, 89, 0.10);
+  --accent-bright: #D4B06A;
+  --text-primary: #ECEAE4;
+  --text-secondary: #7A7870;
+  --text-muted: #3A3830;
+  --signal-ok: #3A6B4A;
+  --signal-warn: #7A6020;
+  --signal-late: #6B2020;
+  --border: #14141A;
+  --border-mid: #1E1E28;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-serif);
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+@keyframes golden-loader {
+  0% { left: -100%; width: 30%; }
+  50% { left: 30%; width: 40%; }
+  100% { left: 100%; width: 30%; }
+}
+
+.golden-loader {
+  position: relative;
+  height: 2px;
+  width: 100%;
+  background: var(--bg-tertiary);
+  overflow: hidden;
+}
+
+.golden-loader::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  height: 100%;
+  background: var(--accent);
+  animation: golden-loader 1.8s linear infinite;
+}
+
+.typewriter-text {
+  font-style: italic;
+  white-space: pre-wrap;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-mid);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
+
+input, textarea, select {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-mid);
+  color: var(--text-primary);
+  padding: 8px 12px;
+  border-radius: 2px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  outline: none;
+}
+
+input:focus, textarea:focus, select:focus {
+  border-color: var(--accent);
+  background: var(--bg-tertiary);
+}
+
+button {
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: #050507;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  padding: 14px 32px;
+  border-radius: 2px;
+  border: none;
+}
+
+.btn-primary:hover {
+  filter: brightness(1.1);
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  background: transparent;
+  border: 0.5px solid var(--accent);
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  padding: 10px 20px;
+  border-radius: 2px;
+}
+
+.btn-secondary:hover {
+  background: var(--accent-dim);
+}
+
+.btn-ghost {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+}
+
+.btn-ghost:hover {
+  color: var(--text-primary);
+}
+
+.fade-in {
+  animation: fadeIn 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
